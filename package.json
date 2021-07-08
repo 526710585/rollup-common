@@ -1,0 +1,22 @@
+{
+  "name": "common",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build-for-base": "rollup --config ./build/rollup.config.base.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/526710585/rollup-common.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/526710585/rollup-common/issues"
+  },
+  "homepage": "https://github.com/526710585/rollup-common#readme",
+  "dependencies": {
+    "rollup": "^2.52.8"
+  }
+}
