@@ -1,5 +1,3 @@
-const resolve  = require('rollup-plugin-node-resolve');
-
 module.exports =  {
   input: './src/game/wzry/index.js',
   output: {
@@ -7,5 +5,5 @@ module.exports =  {
     format: 'umd',
     name:'common'
   },
-  plugins: [ resolve() ]
+  plugins: []
 }
