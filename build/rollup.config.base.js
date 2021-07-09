@@ -1,14 +1,11 @@
-export default [{
+const resolve  = require('rollup-plugin-node-resolve');
+
+module.exports =  {
   input: './src/game/wzry/index.js',
   output: {
-    file: './dist/wzry/common.js',
-    format: 'cjs',
+    file: './dist/wzry/common.umd.js',
+    format: 'umd',
     name:'common'
-  }
-},{
-  input: './src/game/hpjy/index.js',
-  output: {
-    file: './dist/hpjy/common.js',
-    format: 'es'
-  }
-}]
+  },
+  plugins: [ resolve() ]
+}

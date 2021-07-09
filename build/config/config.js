@@ -17,6 +17,6 @@ const configArr = [
   }
 ]
 const configObj = {
-  library:'common'
+  name:'common'
 }
 module.exports = {configArr,configObj}

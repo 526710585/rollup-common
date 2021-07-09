@@ -1,37 +1,26 @@
 const path = require('path');
 const getFilesName = require('./getFilesName');
-const {configArr,configObj}= require('../config');
+const {configArr,configObj}= require('../config/config');
 const margeArrConfig = require('./margeConfig')
-const baseWebpackConfig = require('../webpack.base.config');
 const { merge } = require('webpack-merge');
 
 function getconf(baseConfig,setConfig){
   // 获取目录
   const fileArr = getFilesName(path.resolve(__dirname, '../../src/game/'));
+  console.log(fileArr);
   //分开环境版本以及目录   //设置entry  //设置output
   let setArr = []
   fileArr.forEach(item=>{
     configArr.forEach(subitem=>{
       const obj = {
-        entry:{},
+        input:'',
         output:{},
-        experiments:{}
       }
-      obj.entry.index = `./src/game/${item}/index.js`;
-      obj.output.libraryTarget = subitem.libraryTarget;
-      if(subitem.libraryTarget==='module'){
-        obj.experiments.outputModule = true;
-      }else{
-        obj.output.library = configObj.library;
-      }
-      if(subitem.libraryTarget==='umd'){
-        obj.output.libraryExport = 'default'
-      }
-      if(subitem.globalObject){
-        obj.output.globalObject = subitem.globalObject;
-      }
-      obj.output.filename = `${item}.${configObj.library}.${subitem.name}.js`;
-      obj.output.path = path.resolve(__dirname, `../../dist/${item}`)
+      obj.input = `./src/game/${item}/index.js`;
+      obj.output.format = subitem.format;
+      obj.output.name = configObj.name;
+      obj.output.file = `./dist/${item}/${item}.${configObj.name}.${subitem.name}.js`;
+      // obj.output.path = path.resolve(__dirname, `../../dist/${item}`)
       setArr.push(obj)
     })
   })
