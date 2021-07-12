@@ -8,6 +8,7 @@ class hpjy extends Common{
   }
   init(){
     console.log(`my name :${this.name}`);
+    console.log([1,2,3,4].includes(1));
   }
 }
 
