@@ -4,6 +4,9 @@ const getconf = require('./methods/getconf')
 import baseRollupConfig from './rollup.config.base'
 
 const rollupConfig = getconf(baseRollupConfig, {
+  output:{
+    sourcemap: true
+  }
 
 });
 export default rollupConfig;
