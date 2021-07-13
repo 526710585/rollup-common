@@ -1,6 +1,7 @@
 import babel from "rollup-plugin-babel";
 import resolve from 'rollup-plugin-node-resolve';
 import commonjs from 'rollup-plugin-commonjs';
+import { eslint } from "rollup-plugin-eslint";
 
 export default {
   input: './src/game/wzry/index.js',
@@ -10,6 +11,7 @@ export default {
     name:'common'
   },
   plugins: [
+    eslint(),
     resolve(),
     commonjs(),
     babel({
