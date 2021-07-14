@@ -1,6 +1,7 @@
+import { warn } from '../util/error';
 class Common {
   constructor() {
-
+    this.warn = warn;
   }
   /**
    *
@@ -42,11 +43,8 @@ class Common {
    * @param {*} call 节流期间的回调
    * @returns 节流函数
    */
-  throttle(fun, waitTime, call) {
+  throttle(fun, waitTime, call = function () {}) {
     let oneSwitch = true;
-    if (call === undefined) {
-      call = function () {};
-    }
     return function () {
       if (oneSwitch) {
         oneSwitch = false;
@@ -65,11 +63,8 @@ class Common {
    * @param {*} waitTime 防抖的时间
    * @returns 防抖函数
    */
-  debounce(fun, waitTime) {
+  debounce(fun, waitTime = 500) {
     let timeId = null;
-    if (waitTime === undefined) {
-      waitTime = 500;
-    }
     return function () {
       clearTimeout(timeId);
       timeId = setTimeout(() => {
@@ -77,6 +72,7 @@ class Common {
       }, waitTime);
     };
   }
+  toastErr
 }
 
 export default Common;

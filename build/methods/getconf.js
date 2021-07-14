@@ -1,6 +1,6 @@
 const path = require('path');
 const getFilesName = require('./getFilesName');
-const {configArr,configObj}= require('../config/config');
+const {configArr,configObj} = require('../config/config');
 const margeArrConfig = require('./margeConfig')
 const { merge } = require('webpack-merge');
 
